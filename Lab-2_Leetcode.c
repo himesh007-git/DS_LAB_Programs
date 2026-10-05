@@ -7,7 +7,7 @@ char* reversePrefix(char* word, char ch) {
     int i;
     int found = 0;
 
-    // Step 1: Push characters onto the stack until 'ch' is found
+
     for (i = 0; word[i] != '\0'; i++) {
         stack[++top] = word[i];
         if (word[i] == ch) {
@@ -16,12 +16,10 @@ char* reversePrefix(char* word, char ch) {
         }
     }
 
-    // If the character 'ch' does not exist in 'word', return the original word
     if (!found) {
         return word;
     }
 
-    // Step 2: Pop from the stack back into the word up to index i
     int j = 0;
     while (top >= 0) {
         word[j++] = stack[top--];
@@ -35,7 +33,7 @@ int main() {
     char ch;
 
     printf("Enter word: ");
-    scanf("%99s", word); // Prevents buffer overflow
+    scanf("%99s", word);
 
     printf("Enter character: ");
     scanf(" %c", &ch);
