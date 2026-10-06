@@ -74,7 +74,7 @@ int main(){
                    break;
 
             case 4:a=0;
-                    printf("\nPrograsm has ended");
+                    printf("\nProgram has ended");
                     break;
 
             default : printf("\nInvalid choice.Enter valid choice");
