@@ -6,7 +6,7 @@ struct Node {
     struct Node* next;
 };
 
-// 1. Insert at front
+
 void insertBeginning(struct Node **head, int value) {
     struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
     if (newNode == NULL) {
@@ -18,7 +18,7 @@ void insertBeginning(struct Node **head, int value) {
     *head = newNode;
 }
 
-// 2. Insert at end
+
 void insertEnd(struct Node **head, int value) {
     struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
     if (newNode == NULL) {
@@ -28,7 +28,7 @@ void insertEnd(struct Node **head, int value) {
     newNode->data = value;
     newNode->next = NULL;
 
-    // If the list is empty, make new node the head
+   
     if (*head == NULL) {
         *head = newNode;
         return;
@@ -41,7 +41,7 @@ void insertEnd(struct Node **head, int value) {
     temp->next = newNode;
 }
 
-// 3. Insert at position (1-based index)
+
 void insertMiddle(struct Node **head, int value, int pos) {
     if (pos < 1) {
         printf("Invalid position\n");
@@ -73,18 +73,17 @@ void insertMiddle(struct Node **head, int value, int pos) {
     temp->next = newNode;
 }
 
-// 4. Delete at front
+
 void deletefirst(struct Node **head) {
     if (*head == NULL) {
         printf("List is empty\n");
         return;
     }
     struct Node *temp = *head;
-    *head = (*head)->next; // Correctly dereference and update head pointer
+    *head = (*head)->next;
     free(temp);
 }
 
-// 5. Delete at end
 void deleteend(struct Node **head) {
     if (*head == NULL) {
         printf("List is empty\n");
@@ -92,7 +91,7 @@ void deleteend(struct Node **head) {
     }
 
     struct Node *p = *head;
-    if (p->next == NULL) { // Only one element in the list
+    if (p->next == NULL) { 
         free(p);
         *head = NULL;
         return;
@@ -107,7 +106,7 @@ void deleteend(struct Node **head) {
     free(q);
 }
 
-// 6. Delete at position (1-based index matching insertion logic)
+
 void deleteatindex(struct Node **head, int index) {
     if (*head == NULL) {
         printf("List is empty\n");
@@ -140,7 +139,7 @@ void deleteatindex(struct Node **head, int index) {
     free(q);
 }
 
-// 7. Display the list
+
 void display(struct Node **head) {
     struct Node *temp = *head;
     if (temp == NULL) {
@@ -148,7 +147,7 @@ void display(struct Node **head) {
         return;
     }
     while (temp != NULL) {
-        printf("%d -> ", temp->data); // Fixed the ptr compile error
+        printf("%d -> ", temp->data); 
         temp = temp->next;
     }
     printf("NULL\n");
@@ -156,7 +155,7 @@ void display(struct Node **head) {
 
 int main() {
     struct Node *head = NULL; // Initialized the head pointer
-    int c = 1, choice, pos, val; // Fixed undeclared 'val' variable
+    int c = 1, choice, pos, val; 
 
     while (c == 1) {
         printf("\n-----------------------------\n");
@@ -176,7 +175,7 @@ int main() {
             case 1:
                 printf("Enter the value: ");
                 scanf("%d", &val);
-                insertBeginning(&head, val); // Pass address of head pointer
+                insertBeginning(&head, val); 
                 break;
             case 2:
                 printf("Enter the value: ");
